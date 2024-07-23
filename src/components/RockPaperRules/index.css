@@ -1,0 +1,105 @@
+.rulesbutton-rps {
+  width: 62px;
+  height: 32px;
+  font-family: Bree Serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #ffffff;
+  color: #ffffff;
+  cursor: pointer;
+}
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.Modalrps {
+  position: absolute;
+  width: 312px;
+  height: 564px;
+  top: 48px;
+  left: 24px;
+  gap: 0px;
+  border-radius: 12px;
+  opacity: 0px;
+  background-color: #ffffff;
+  overflow: auto;
+}
+
+.rulesulrps {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+  justify-content: center;
+  width: 70%;
+}
+.rulelistsrps {
+  width: 278px;
+  top: 64px;
+  left: 12px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: #475569;
+  margin-bottom: 10px;
+}
+.closebutton {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  align-self: flex-end;
+}
+
+.model-containerrps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rulesheds {
+  width: 41px;
+  height: 24px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  color: #1e293b;
+  align-self: center;
+  margin: 0px;
+}
+@media (min-width: 768px) {
+  .Modalrps {
+    width: 500px;
+    height: 400px;
+    top: 172px;
+    left: 150px;
+    gap: 0px;
+    opacity: 0px;
+  }
+  .rulelists {
+    top: 300px;
+    left: 430px;
+    gap: 0px;
+    opacity: 0px;
+    width: calc(50%-20px);
+    margin: 10px;
+  }
+  .rulesulrps {
+    padding-left: 60px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

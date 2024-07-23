@@ -1,0 +1,57 @@
+.flipresult-con {
+  max-width: 1440px;
+  height: 100vh;
+  background-color: #14332e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeupimg {
+  width: 80px;
+  height: 80px;
+}
+@media (min-width: 768px) {
+  .timeupimg {
+    width: 180px;
+    height: 180px;
+  }
+}
+.reasult-hed {
+  font-family: Bree Serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: center;
+  color: #4ade80;
+}
+.noflip-para {
+  font-family: Bree Serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+}
+.didnotmatch-para {
+  font-family: Bree Serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+}
+.startagin-flip {
+  width: 91px;
+  height: 32px;
+  gap: 8px;
+  border-radius: 8px;
+  opacity: 0px;
+  color: #14332e;
+  background-color: white;
+  font-family: Bree Serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}

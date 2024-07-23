@@ -1,0 +1,134 @@
+.Home-Container {
+  width: 360px;
+  height: 918px;
+  gap: 0px;
+  opacity: 0px;
+  background: linear-gradient(117.3deg, #834d9b 2.24%, #d04ed6 173.83%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-contaer1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .Home-Container {
+    width: 1440px;
+    height: 1024px;
+  }
+
+  .home-contaer1 {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+.heading {
+  height: 38px;
+  top: 48px;
+  left: 129px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 37.5px;
+  text-align: center;
+  color: #f8fafc;
+}
+@media (min-width: 768px) {
+  .heading {
+    width: 100%;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56.25px;
+  }
+}
+.Game-card {
+  width: 312px;
+  height: 176px;
+  top: 118px;
+  left: 24px;
+  gap: 0px;
+  border-radius: 12px;
+  opacity: 0px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
+}
+@media (min-width: 768px) {
+  .Game-card {
+    width: 554px;
+    height: 280px;
+    margin-bottom: 0px;
+    margin-left: 12px;
+    margin: 10px;
+  }
+}
+.emojigame {
+  width: 128px;
+  height: 108px;
+  top: 136px;
+  left: 116px;
+  gap: 0px;
+  opacity: 0px;
+}
+
+.rock-des {
+  width: 160px;
+  height: 24px;
+  top: 520px;
+  left: 100px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Bree Serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+}
+.rpsigame {
+  width: 121px;
+  height: 108px;
+  top: 552px;
+  left: 119px;
+  gap: 0px;
+  opacity: 0px;
+}
+.memoryigame {
+  width: 264px;
+  height: 143px;
+  top: 711px;
+  left: 48px;
+  gap: 0px;
+  opacity: 0px;
+}
+@media (min-width: 768px) {
+  .emojigame {
+    width: 224px;
+    height: 188px;
+  }
+  .rpsigame {
+    width: 197px;
+    height: 176px;
+  }
+  .memoryigame {
+    width: 434px;
+    height: 232px;
+  }
+}
+.orderhed1 {
+  order: 2;
+}
+.orderimg1 {
+  order: 1;
+}
+.linkclass {
+  text-decoration: none;
+  color: #334155;
+}

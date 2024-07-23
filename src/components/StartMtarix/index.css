@@ -1,0 +1,22 @@
+.gridof {
+  display: grid;
+  gap: 2px;
+  margin: 0 auto;
+}
+
+.cell {
+  background-color: white;
+  border-radius: 10px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin: 2px;
+}
+.heighletedstyle {
+  background-color: #467aff;
+}
+.red {
+  background-color: red;
+}
