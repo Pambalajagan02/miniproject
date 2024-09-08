@@ -22,7 +22,7 @@ const RockPaperResult = props => {
   return (
     <div className="main2-con" id="gapcon">
       <h1 className="h1hed" id="h1hedid">
-        ROCK PAPER SCISSOR
+        Rock Paper Scissor
       </h1>
       <div className="inner-main-con">
         <div className="results-con">
@@ -34,7 +34,9 @@ const RockPaperResult = props => {
           <img src={displyimg} className="wonimg" alt={altdisimg} />
           <div className="displayscorecon">
             <p className="score-de">Score</p>
-            <p className="score-dis">{scorerps}</p>
+            <p className="score-dis" id="scorerps">
+              {scorerps}
+            </p>
           </div>
         </div>
         <div className="rockandpapercon">

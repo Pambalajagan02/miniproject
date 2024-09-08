@@ -1,5 +1,5 @@
 const Resultsflip = props => {
-  const {playAgainFlip} = props
+  const {playAgainFlip, flipCount} = props
 
   const playAgainRes = () => {
     playAgainFlip()
@@ -11,11 +11,11 @@ const Resultsflip = props => {
         alt="grinning face with big eyes"
         className="timeupimg"
       />
-      <h1 className="reasult-hed">Congratulations!</h1>
-      <p className="noflip-para">No.of Flips - 20</p>
-      <p className="didnotmatch-para">
+      <h1 className="reasult-hed">Congratulations</h1>
+      <p className="noflip-para">No.of Flips - {flipCount} </p>
+      <h1 className="didnotmatch-para">
         You matched all of the cards in record time
-      </p>
+      </h1>
       <button type="button" className="startagin-flip" onClick={playAgainRes}>
         Play Again
       </button>

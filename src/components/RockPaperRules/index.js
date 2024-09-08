@@ -3,8 +3,6 @@ import Modal from 'react-modal'
 import {CgClose} from 'react-icons/cg'
 import './index.css'
 
-Modal.setAppElement('#root')
-
 const rulesof = [
   {
     id: 1,
@@ -108,6 +106,7 @@ class RockPaperRules extends Component {
         >
           <div className="model-containerrps">
             <button
+              id="cgrock"
               type="button"
               onClick={this.handleCloseModal}
               className="closebutton"

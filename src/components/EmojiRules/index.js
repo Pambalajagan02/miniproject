@@ -32,25 +32,19 @@ const rulesof = [
   },
 ]
 
-Modal.setAppElement('#root')
-
 class RulesViewEmoji extends Component {
-  state = {showModal: false}
-
   constructor() {
     super()
     this.state = {
       showModal: false,
     }
-    this.handleOpenModal = this.handleOpenModal.bind(this)
-    this.handleCloseModal = this.handleCloseModal.bind(this)
   }
 
-  handleOpenModal() {
+  handleOpenModal = () => {
     this.setState({showModal: true})
   }
 
-  handleCloseModal() {
+  handleCloseModal = () => {
     this.setState({showModal: false})
   }
 
@@ -67,10 +61,10 @@ class RulesViewEmoji extends Component {
         </button>
         <Modal
           isOpen={showModal}
-          contentLabel="onRequestClose Example"
           onRequestClose={this.handleCloseModal}
           className="Modal"
           overlayClassName="Overlay"
+          ariaHideApp={false} // Added this line to suppress warnings in test environments
         >
           <div className="model-container">
             <button
@@ -82,7 +76,6 @@ class RulesViewEmoji extends Component {
               <CgClose size={20} className="iconstyle" />
             </button>
             <h1 className="rulesheds">Rules</h1>
-
             <ul className="rulesul">
               {rulesof.map(each => (
                 <li key={each.id} className="rulelists">
@@ -96,4 +89,5 @@ class RulesViewEmoji extends Component {
     )
   }
 }
+
 export default RulesViewEmoji

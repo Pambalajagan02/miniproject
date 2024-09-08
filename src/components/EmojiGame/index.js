@@ -155,11 +155,7 @@ class EmojiGame extends Component {
   renderRulesView = () => (
     <div className="EmojiGameContainer">
       <div className="back-button-container">
-        <img
-          src="https://res.cloudinary.com/dgkcumi4q/image/upload/v1720436459/arrow-leftleftarrow_d5csaa.svg"
-          className="arrow"
-          alt="emoji game"
-        />
+        <BiArrowBack className="iconstyle" size={20} />
         <button type="button" className="backbutton" onClick={this.onClickBack}>
           Back
         </button>
@@ -199,6 +195,7 @@ class EmojiGame extends Component {
     return (
       <div className="gameviewContainer">
         <EmojiHeader score={clicklist.length} />
+
         <div className="back-rules-button-container">
           <div className="back-container">
             <BiArrowBack className="iconstyle" size={20} />
@@ -212,6 +209,7 @@ class EmojiGame extends Component {
           </div>
           <RulesViewEmoji />
         </div>
+        <h1>Emoji Game</h1>
 
         <ul className="emojisulcontainer">
           {emojisList.map(each => (
@@ -254,7 +252,7 @@ class EmojiGame extends Component {
           <img src={isWinImageUrl} alt={altval} className="resultimage" />
           <div className="scorongcon">
             <h1 className="winorloose">{wonorloose}</h1>
-            <p className="bestscore">Best Score</p>
+            <p className="bestscore">Score</p>
             <p className="score">{clicklist.length}/12</p>
             <button
               type="button"

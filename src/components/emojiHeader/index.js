@@ -13,7 +13,7 @@ const EmojiHeader = props => {
           />
           <p className="emojidescription">Emoji Game</p>
         </div>
-        <p className="score-para">Score:{score}</p>
+        <p className="score-para">Score: {score}</p>
       </div>
     </nav>
   )

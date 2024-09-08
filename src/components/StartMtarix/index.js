@@ -13,7 +13,9 @@ class StartMatrix extends Component {
     selectedboxes: [],
     isgameover: false,
     sizeofprogress: 0,
-    stage: 0,
+    stage: 1,
+    totallevel: 15,
+    currentlevel: 1,
   }
 
   componentDidMount() {
@@ -21,15 +23,11 @@ class StartMatrix extends Component {
     this.timeoutfunc()
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.timeid)
-  }
-
   getrandommatrix = () => {
     const {size} = this.state
     const gridSize = size * size
     const newarr = Array.from({length: gridSize}, (_, index) => index)
-    for (let i = newarr.length - 1; i > 0; i - 1) {
+    for (let i = newarr.length - 1; i > 0; i -= 1) {
       const j = Math.floor(Math.random() * (i + 1))
       ;[newarr[i], newarr[j]] = [newarr[j], newarr[i]]
     }
@@ -39,10 +37,10 @@ class StartMatrix extends Component {
   inComponentPlayagain = () => {
     this.setState(
       {
-        isgameover: false,
         selectedboxes: [],
         heighltedboxes: [],
         isclikable: false,
+        isgameover: false,
       },
       () => {
         this.getrandommatrix()
@@ -61,7 +59,7 @@ class StartMatrix extends Component {
   }
 
   tickfunction = () => {
-    this.setState({isclikable: true}, () => clearTimeout(this.timeid))
+    this.setState({isclikable: true})
   }
 
   colorsfunction = id => {
@@ -70,7 +68,7 @@ class StartMatrix extends Component {
   }
 
   onClickSelectFunc = id => {
-    const {heighltedboxes, selectedboxes} = this.state
+    const {heighltedboxes, selectedboxes, totallevel} = this.state
     this.setState(
       prev => ({selectedboxes: [...prev.selectedboxes, id]}),
       () => {
@@ -82,8 +80,9 @@ class StartMatrix extends Component {
               heighltedboxes: [],
               isclikable: false,
               isgameover: false,
-              sizeofprogress: prevState.sizeofprogress + 20,
+              sizeofprogress: (prevState.stage + 1 / totallevel) * 100,
               stage: prevState.stage + 1,
+              currentlevel: prevState.currentlevel + 1,
             }),
             () => {
               this.getrandommatrix()
@@ -92,9 +91,12 @@ class StartMatrix extends Component {
           )
         }
         if (!heighltedboxes.includes(id)) {
-          setTimeout(() => {
-            this.setState({isgameover: true})
-          }, 500)
+          this.setState(prevState => ({
+            isgameover: true,
+            sizeofprogress:
+              prevState.stage === 1 ? 0 : (prevState.stage / totallevel) * 100,
+            stage: prevState.stage - 1,
+          }))
         }
       },
     )
@@ -109,6 +111,7 @@ class StartMatrix extends Component {
   }
 
   gridMatrix = () => {
+    console.log('heyy----grid')
     const {size, isclikable, heighltedboxes} = this.state
     const gridSize = size * size
     const cells = Array.from({length: gridSize}, (_, index) => index)
@@ -122,20 +125,25 @@ class StartMatrix extends Component {
         }}
       >
         {cells.map(cell => (
-          <button
-            type="button"
+          <div
             className={`cell ${
               isclikable
                 ? this.anothercolorfunction(cell)
                 : this.colorsfunction(cell)
             }`}
-            key={cell}
-            data-testid={
-              heighltedboxes.includes(cell) ? 'highlighted' : 'notHighlighted'
-            }
             aria-label="cellbutton"
-            onClick={isclikable ? () => this.onClickSelectFunc(cell) : null}
-          />
+            key={cell}
+          >
+            <button
+              type="button"
+              className="but"
+              onClick={isclikable ? () => this.onClickSelectFunc(cell) : null}
+              aria-label={`Select cell ${cell + 1}`}
+              data-testid={
+                heighltedboxes.includes(cell) ? 'highlighted' : 'notHighlighted'
+              }
+            />
+          </div>
         ))}
       </div>
     )
@@ -143,7 +151,7 @@ class StartMatrix extends Component {
 
   renderStartFunc = () => {
     console.log('start----again')
-    const {stage} = this.state
+    const {stage, currentlevel} = this.state
     return (
       <div className="main2-con" id="matrix-rule-con">
         <div className="inner-main-con">
@@ -162,7 +170,11 @@ class StartMatrix extends Component {
           </div>
           <h1 className="matrixhed">Memory Matrix</h1>
           <div className="matrix-game-con">
-            <h1 className="level-hed">Level - {stage}</h1>
+            <p className="level-hed">Level - {currentlevel}</p>
+            <ul>
+              <li key={1}>Level-{stage}</li>
+              <li key={2}>score:0</li>
+            </ul>
             {this.gridMatrix()}
           </div>
         </div>
@@ -171,12 +183,12 @@ class StartMatrix extends Component {
   }
 
   render() {
-    const {isgameover, sizeofprogress, stage} = this.state
+    const {isgameover, stage, sizeofprogress} = this.state
     return isgameover ? (
       <MatrixResult
-        sizeofprogress={sizeofprogress}
-        stage={stage}
         inComponentPlayagain={this.inComponentPlayagain}
+        stage={stage}
+        sizeofprogress={sizeofprogress}
       />
     ) : (
       this.renderStartFunc()

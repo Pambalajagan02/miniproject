@@ -20,6 +20,8 @@
   width: 90%;
   justify-content: space-between;
   margin: 10px;
+  list-style-type: none;
+  padding-left: 0px;
 }
 .congo {
   width: 183px;

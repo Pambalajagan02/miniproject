@@ -39,8 +39,6 @@ const rulesof = [
   },
 ]
 
-Modal.setAppElement('#root')
-
 class FlipRules extends Component {
   state = {showModal: false}
 

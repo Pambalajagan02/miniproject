@@ -69,7 +69,7 @@ class FlipMemoryGame extends Component {
           <img
             src="https://res.cloudinary.com/dgkcumi4q/image/upload/v1720418685/animalsmemorygame_xvqi83.png"
             className="img_rule"
-            alt=" rock paper scissor"
+            alt="card flip memory game"
           />
           <h1 className="main-heading">Rules</h1>
           <ul className="ul-rps-conatiner">

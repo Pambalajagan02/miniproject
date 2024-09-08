@@ -61,9 +61,9 @@ const cardsData = [
 
 const cardslist = cardsData.concat(cardsData)
 const uniquelist = cardslist.map((each, index) => ({...each, id: index}))
-
+console.log(uniquelist)
 const randomlist = uniquelist.sort(() => Math.random() - 0.5)
-
+console.log(randomlist)
 class StartPlaying extends Component {
   state = {
     flippedCards: [],
@@ -104,44 +104,59 @@ class StartPlaying extends Component {
   }
 
   playAgainFlip = () => {
-    this.setState({istimeup: false, iswon: false})
+    this.setState(
+      {
+        istimeup: false,
+        iswon: false,
+        matchedCards: [],
+        time: 120,
+        score: 0,
+        flipCount: 0,
+      },
+      this.timerFunction,
+    )
   }
 
-  handleCardClick = index => {
-    const {flippedCards, matchedCards, flipCount} = this.state
+  resetBoard = () => {
+    this.setState({flippedCards: []})
+    this.setState({lockBoard: false})
+  }
 
-    if (
-      flippedCards.length === 2 ||
-      flippedCards.includes(index) ||
-      matchedCards.includes(index)
-    )
+  handleCardClick = id => {
+    const {lockBoard, flippedCards, matchedCards, flipCount} = this.state
+    if (lockBoard || flippedCards.includes(id) || matchedCards.includes(id))
       return
 
-    const newFlippedCards = [...flippedCards, index]
-    this.setState({flippedCards: newFlippedCards})
+    const newFlippedCards = [...flippedCards, id]
+    this.setState(prev => ({
+      flippedCards: [...prev.flippedCards, id],
+    }))
 
     if (newFlippedCards.length === 2) {
-      const [firstIndex, secondIndex] = newFlippedCards
-      if (cardslist[firstIndex].name === cardslist[secondIndex].name) {
-        this.setState(prev => {
-          const newcards = [...prev.matchedCards, firstIndex, secondIndex]
-          if (newcards.length === cardslist.length) {
-            clearInterval(this.timerid)
-            const newcardsofar = {
-              matchedCards: newcards,
-              score: prev.score + 1,
-              flippedCards: [],
-              iswon: true,
-            }
-            return newcardsofar
-          }
-          return ''
-        })
-      }
-      setTimeout(() => this.setState({flippedCards: []}), 1000)
-    }
+      this.setState({lockBoard: true, flipCount: flipCount + 1})
 
-    this.setState({flipCount: flipCount + 1})
+      const [firstIndex, secondIndex] = newFlippedCards
+
+      const isMatch =
+        uniquelist[firstIndex].name === uniquelist[secondIndex].name
+
+      if (isMatch) {
+        this.setState(prev => {
+          const updatedcards = [...prev.matchedCards, firstIndex, secondIndex]
+          const iswon = uniquelist.length === updatedcards.length
+          return {
+            matchedCards: updatedcards,
+            score: prev.score + 1,
+            iswon,
+          }
+        })
+        this.resetBoard()
+      } else {
+        setTimeout(() => {
+          this.resetBoard()
+        }, 1500)
+      }
+    }
   }
 
   timerToString = seconds => {
@@ -163,10 +178,14 @@ class StartPlaying extends Component {
       time,
     } = this.state
     if (iswon) {
-      return <Resultsflip playAgainFlip={this.playAgainFlip} />
+      return (
+        <Resultsflip playAgainFlip={this.playAgainFlip} flipCount={flipCount} />
+      )
     }
     if (istimeup) {
-      return <TimeupNext playAgainFlip={this.playAgainFlip} />
+      return (
+        <TimeupNext playAgainFlip={this.playAgainFlip} flipCount={flipCount} />
+      )
     }
     return (
       <div className="main2-con" id="startcon">
@@ -187,35 +206,39 @@ class StartPlaying extends Component {
           <h1 className="h1hedflip">Card-Flip Memory Game</h1>
           <p className="timer-para">{this.timerToString(time)}</p>
           <div className="con-headers">
-            <p className="count-para">Card flip count -{flipCount}</p>
+            <p className="count-para">Card flip count - {flipCount}</p>
             <p className="count-para">Score - {score}</p>
           </div>
-          <ul className="game-container-flip">
-            {randomlist.map(card => (
-              <li key={card.id} className="list-style-con">
-                <button
-                  type="button"
-                  className={`buttonflip ${
-                    flippedCards.includes(card.id) ||
-                    matchedCards.includes(card.id)
-                      ? 'flipped'
-                      : ''
-                  }`}
-                  onClick={() => this.handleCardClick(card.id)}
-                >
-                  <div className="card">
-                    <img
-                      src={card.image}
-                      alt={card.name}
-                      className="card-img front"
-                    />
+          <ul className="memory-game">
+            {uniquelist.map((eachitem, index) => (
+              <li
+                key={eachitem.id}
+                className={`memory-card ${
+                  flippedCards.includes(index) || matchedCards.includes(index)
+                    ? 'flip'
+                    : ''
+                }`}
+              >
+                <div className="front-face">
+                  <button
+                    type="button"
+                    data-testid={eachitem.name}
+                    onClick={() => this.handleCardClick(index)}
+                  >
                     <img
                       src="https://res.cloudinary.com/dgkcumi4q/image/upload/v1721587291/foot-print_5footprints_w5mz7y.png"
-                      alt="back"
-                      className="card-img back"
+                      alt="footprints"
+                      className="footprints"
                     />
-                  </div>
-                </button>
+                  </button>
+                </div>
+                <div className="back-face">
+                  <img
+                    src={eachitem.image}
+                    alt={eachitem.name}
+                    className="footprints"
+                  />
+                </div>
               </li>
             ))}
           </ul>
@@ -228,5 +251,4 @@ class StartPlaying extends Component {
     return this.renderBasedOnFunc()
   }
 }
-
 export default withRouter(StartPlaying)

@@ -188,7 +188,7 @@
   }
 }
 .gameviewContainer {
-  width: 360px;
+  width: 100%;
   height: 100vh;
   background: linear-gradient(180deg, #a09aed 0%, #e0badb 100%);
   display: flex;

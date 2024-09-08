@@ -1,7 +1,7 @@
 import './index.css'
 
 const TimeUpNext = props => {
-  const {playAgainFlip} = props
+  const {playAgainFlip, flipCount} = props
 
   const playAgainOnClick = () => {
     playAgainFlip()
@@ -13,8 +13,8 @@ const TimeUpNext = props => {
         alt="neutral face"
         className="timeupimg"
       />
-      <h1 className="reasult-hed">Better luck next time!</h1>
-      <p className="noflip-para">No.of Flips - 20</p>
+      <h1 className="reasult-hed">Better luck next time</h1>
+      <p className="noflip-para">No.of Flips - {flipCount}</p>
       <p className="didnotmatch-para">
         You did not match all of the cards in record time
       </p>

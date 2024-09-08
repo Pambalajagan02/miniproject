@@ -249,6 +249,7 @@ class RockPaperScissor extends Component {
           className="img_rule"
           alt=" rock paper scissor"
         />
+        <h1 className="main-heading">Rules</h1>
         <ul className="ul-rps-conatiner">
           {rulesof.map(each => (
             <li key={each.id} className="list-of-rules">

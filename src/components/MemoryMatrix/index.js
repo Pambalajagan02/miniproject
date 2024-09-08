@@ -72,8 +72,9 @@ class MemoryMatrix extends Component {
         <img
           src="https://res.cloudinary.com/dgkcumi4q/image/upload/v1721012813/memoryrulematrix_ch4hng.png"
           className="img_rule"
-          alt=" rock paper scissor"
+          alt="memory matrix"
         />
+        <h1 className="main-heading">Rules</h1>
         <ul className="ul-rps-conatiner">
           {rulesof.map(each => (
             <li key={each.id} className="list-of-rules">
@@ -96,7 +97,6 @@ class MemoryMatrix extends Component {
   renderBasedonfunction = () => {
     const {matrixisstart} = this.state
     if (matrixisstart) {
-      console.log('----------start')
       return <StartMatrix />
     }
     return this.matrixRules()

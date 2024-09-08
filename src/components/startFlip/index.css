@@ -4,7 +4,6 @@
   background-size: cover;
   background-position: center;
 }
-
 .h1hedflip {
   font-family: Roboto;
   font-size: 24px;
@@ -13,7 +12,6 @@
   text-align: center;
   color: #ffffff;
 }
-
 .timer-para {
   font-family: Roboto;
   font-size: 24px;
@@ -23,102 +21,60 @@
   color: #ffffff;
   margin: 0px;
 }
-
 .con-headers {
   display: flex;
   justify-content: space-around;
   width: 90%;
   margin-top: 20px;
 }
-
-.game-container-flip {
-  width: 90%;
-  height: 394px;
+.memory-game {
+  width: 312px;
+  height: 390px;
+  background-color: #154315;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  perspective: 1000px;
   list-style-type: none;
-  padding-left: 0px;
-  align-items: center;
-  margin-top: 20px;
-  background-color: #154315;
-  border: 10px solid #ffffff30;
-  padding: 10px;
+  padding-left: 3px;
+  padding: 0px;
 }
-@media (min-width: 768px) {
-  .game-container-flip {
-    width: 500px;
-    height: 400px;
-  }
-}
-
-.count-para {
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  text-align: right;
-  color: #ffffff;
-}
-
-.list-style-con {
+.memory-card {
   width: 66px;
   height: 66px;
-  border: 8px solid #ffffff30;
-  background-color: #ffffff;
-  border-radius: 10px;
-  perspective: 1000px;
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor: pointer;
 }
-
-@media (min-width: 768px) {
-  .list-style-con {
-    width: 80px;
-    height: 80px;
-    gap: 0px;
-  }
-}
-
-.buttonflip {
-  background-color: transparent;
-  border: 1.2px solid #ffffff30;
+.front-face {
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  perspective: 1000px;
-  cursor: pointer;
-  width: 66px;
-  height: 66px;
+  font-size: 50px;
+  color: #333;
 }
-
-.buttonflip.flipped .card {
+.back-face {
+  background: #2c3e50;
   transform: rotateY(180deg);
 }
-
-.card-img {
-  width: 52px;
-  height: 56px;
-  top: 245px;
-  left: 191px;
-  gap: 0px;
+.footprints {
+  width: 41.25px;
+  height: 41.25px;
   opacity: 0px;
-  border-radius: 5px;
+}
+
+.memory-card .front-face,
+.memory-card .back-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
   backface-visibility: hidden;
-}
-.card {
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
+  border-radius: 5px;
 }
 
-.front {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.memory-card.flip {
   transform: rotateY(180deg);
 }

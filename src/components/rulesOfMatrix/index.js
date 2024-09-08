@@ -40,8 +40,6 @@ const rulesof = [
   },
 ]
 
-Modal.setAppElement('#root')
-
 class RulesOfMatrix extends Component {
   state = {showModal: false}
 
