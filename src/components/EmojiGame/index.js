@@ -209,7 +209,7 @@ class EmojiGame extends Component {
           </div>
           <RulesViewEmoji />
         </div>
-        <h1>Emoji Game</h1>
+        <h1 className="emoji-game-head">Emoji Game</h1>
 
         <ul className="emojisulcontainer">
           {emojisList.map(each => (

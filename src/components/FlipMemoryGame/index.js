@@ -54,7 +54,7 @@ class FlipMemoryGame extends Component {
   render() {
     const {isFlipStart} = this.state
     return isFlipStart ? (
-      <div className="rock-paper-Main" id="flipmemotry">
+      <div className="rock-paper-Main flis" id="flipmemotry">
         <div className="inner-main-con">
           <div className="back-container-rps">
             <BiArrowBack className="iconstyle-rps" size={20} />

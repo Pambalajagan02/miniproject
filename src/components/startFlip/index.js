@@ -224,6 +224,7 @@ class StartPlaying extends Component {
                     type="button"
                     data-testid={eachitem.name}
                     onClick={() => this.handleCardClick(index)}
+                    className="foot-button"
                   >
                     <img
                       src="https://res.cloudinary.com/dgkcumi4q/image/upload/v1721587291/foot-print_5footprints_w5mz7y.png"

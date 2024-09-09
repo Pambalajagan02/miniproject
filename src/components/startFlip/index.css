@@ -27,16 +27,34 @@
   width: 90%;
   margin-top: 20px;
 }
+@media (min-width: 768px) {
+  .con-headers {
+    width: 50%;
+  }
+}
 .memory-game {
-  width: 312px;
-  height: 390px;
+ max-width: 360px; /* Set a reasonable max width for mobile */
+  min-width: 240px;
   background-color: #154315;
   display: flex;
   flex-wrap: wrap;
   perspective: 1000px;
   list-style-type: none;
   padding-left: 3px;
-  padding: 0px;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  .memory-game {
+    max-width: 912px;
+    min-width: 30%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 5px; /* Gap between cards */
+    padding: 10px;
+  }
 }
 .memory-card {
   width: 66px;
@@ -49,7 +67,7 @@
   cursor: pointer;
 }
 .front-face {
-  background: #fff;
+  background: #a7f3d080;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,13 +75,17 @@
   color: #333;
 }
 .back-face {
-  background: #2c3e50;
+  background: #ffffff;
   transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .footprints {
   width: 41.25px;
   height: 41.25px;
-  opacity: 0px;
+  opacity: 1px;
+  align-self: center;
 }
 
 .memory-card .front-face,
@@ -77,4 +99,21 @@
 
 .memory-card.flip {
   transform: rotateY(180deg);
+}
+.count-para {
+  color: #e1eadc;
+  font-family: 'Roboto';
+  font-weight: 500;
+}
+.foot-button {
+  background-color: transparent;
+  border: none;
+}
+.gborder {
+  border-style: solid;
+  border-color: green;
+}
+.redborder {
+  border-style: solid;
+  border-color: red;
 }

@@ -13,11 +13,11 @@ const TimeUpNext = props => {
         alt="neutral face"
         className="timeupimg"
       />
-      <h1 className="reasult-hed">Better luck next time</h1>
+      <h2 className="reasult-hed">Better luck next time</h2>
       <p className="noflip-para">No.of Flips - {flipCount}</p>
-      <p className="didnotmatch-para">
+      <h1 className="didnotmatch-para">
         You did not match all of the cards in record time
-      </p>
+      </h1>
       <button
         type="button"
         className="startagin-flip"

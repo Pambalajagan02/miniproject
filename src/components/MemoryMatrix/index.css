@@ -1,5 +1,5 @@
 .main-rule-matrix-con {
-  max-width: 1440px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@
   top: 88px;
   left: 68px;
   gap: 0px;
-  opacity: 0px;
+  opacity: 1px;
   font-family: Bree Serif;
   font-size: 32px;
   font-weight: 400;
@@ -38,7 +38,7 @@
   top: 179px;
   left: 137px;
   gap: 0px;
-  opacity: 0px;
+  opacity: 1px;
   font-family: Bree Serif;
   font-size: 24px;
   font-weight: 400;

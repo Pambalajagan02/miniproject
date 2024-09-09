@@ -10,7 +10,7 @@
   width: 312px;
   height: 199px;
   border-radius: 12.06px;
-  opacity: 0px;
+  opacity: 1px;
   border: 2.01px solid #ffffff;
   display: flex;
   flex-wrap: wrap;
@@ -58,7 +58,7 @@
   top: 123px;
   left: 217px;
   gap: 0px;
-  opacity: 0px;
+  opacity: 1px;
   font-family: HK Grotesk;
   font-size: 32px;
   font-weight: 700;
@@ -73,7 +73,7 @@
   top: 93px;
   left: 216px;
   gap: 0px;
-  opacity: 0px;
+  opacity: 1px;
   font-family: Bree Serif;
   font-size: 16px;
   font-weight: 400;
@@ -105,7 +105,7 @@
   top: 389px;
   left: 168px;
   gap: 0px;
-  opacity: 0px;
+  opacity: 1px;
 }
 .imgrps-res {
   width: 80px;
@@ -113,7 +113,7 @@
   top: 389px;
   left: 32px;
   gap: 0px;
-  opacity: 0px;
+  opacity: 1px;
 }
 .palyagain {
   width: 91px;
@@ -121,7 +121,7 @@
   padding: 10px;
   gap: 8px;
   border-radius: 8px;
-  opacity: 0px;
+  opacity: 1px;
   border-width: 0px;
   font-family: Bree Serif;
   font-size: 12px;

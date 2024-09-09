@@ -5,3 +5,11 @@
 #flipmemotry {
   background-color: #14332e;
 }
+@media (min-width: 768px) {
+  #flipmemotry {
+    height: 100vh !important;
+  }
+  .flis {
+    height: 100vh !important;
+  }
+}

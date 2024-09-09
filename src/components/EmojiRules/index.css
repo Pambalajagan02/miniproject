@@ -30,7 +30,7 @@
   left: 24px;
   gap: 0px;
   border-radius: 12px;
-  opacity: 0px;
+  opacity: 1px;
   background-color: #ffffff;
 }
 
@@ -45,7 +45,7 @@
   top: 64px;
   left: 12px;
   gap: 0px;
-  opacity: 0px;
+  opacity: 1px;
   font-family: Roboto;
   font-size: 14px;
   font-weight: 500;
@@ -84,14 +84,14 @@
     top: 100px;
     left: 382px;
     gap: 0px;
-    opacity: 0px;
+    opacity: 1px;
   }
   .rulelists {
     width: 579px;
     top: 300px;
     left: 430px;
     gap: 0px;
-    opacity: 0px;
+    opacity: 1px;
   }
   .rulesul {
     padding-left: 60px;

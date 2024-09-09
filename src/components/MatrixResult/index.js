@@ -72,7 +72,11 @@ const MatrixResult = props => {
       <ul className="displaying-img-con">
         {emojisArray.map(each => (
           <li key={each.id}>
-            <img src={each.emojisUrl} alt={each.emojialt} />
+            <img
+              src={each.emojisUrl}
+              alt={each.emojialt}
+              className="mtrix-result-img"
+            />
           </li>
         ))}
       </ul>

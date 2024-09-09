@@ -66,7 +66,7 @@ class FlipRules extends Component {
         <button
           type="button"
           onClick={this.handleOpenModal}
-          className="rulesbutton"
+          className="rulesbutton-rps"
         >
           Rules
         </button>

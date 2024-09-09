@@ -125,18 +125,14 @@ class StartMatrix extends Component {
         }}
       >
         {cells.map(cell => (
-          <div
-            className={`cell ${
-              isclikable
-                ? this.anothercolorfunction(cell)
-                : this.colorsfunction(cell)
-            }`}
-            aria-label="cellbutton"
-            key={cell}
-          >
+          <div aria-label="cellbutton" key={cell}>
             <button
               type="button"
-              className="but"
+              className={`cell but ${
+                isclikable
+                  ? this.anothercolorfunction(cell)
+                  : this.colorsfunction(cell)
+              }`}
               onClick={isclikable ? () => this.onClickSelectFunc(cell) : null}
               aria-label={`Select cell ${cell + 1}`}
               data-testid={
@@ -171,9 +167,13 @@ class StartMatrix extends Component {
           <h1 className="matrixhed">Memory Matrix</h1>
           <div className="matrix-game-con">
             <p className="level-hed">Level - {currentlevel}</p>
-            <ul>
-              <li key={1}>Level-{stage}</li>
-              <li key={2}>score:0</li>
+            <ul className="level-score-ul">
+              <li key={1} className="score-level-li">
+                Level-{stage}
+              </li>
+              <li key={2} className="score-level-li">
+                score:0
+              </li>
             </ul>
             {this.gridMatrix()}
           </div>
